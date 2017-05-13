@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/web/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://E:/Jars/riot-api-java-master/src/main/java" />
+      <root url="file://E:/Jars/riot-api-java-master/src/test/java" />
+      <root url="file://$PROJECT_DIR$/../riot-api-java/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../riot-api-java/src/test/java" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/web/lib" recursive="false" />
+  </library>
+</component>
