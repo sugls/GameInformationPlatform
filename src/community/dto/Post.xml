@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="community.dto.Post">
+    
+    <select id="getThreadPost" resultType="community.dto.Post" parameterType="java.lang.Integer">
+        select post.*, member.actives from post join member on(post.authorid = member.userid) where tid = #{tid} and isFirst = true
+    </select>
+
+    <select id="queryPostsByThreadId" resultType="community.dto.Post" parameterType="java.lang.Integer">
+        select post.*,member.actives from post join member on(post.authorid = member.userid) where tid = #{tid} and isFirst = false
+    </select>
+
+    <select id="countPostsByThreadId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select count(pid) from post where tid = #{tid} and isFirst = false
+    </select>
+
+    <insert id="putAPost" parameterType="community.dto.Post">
+        insert into post(fid,tid,author,authorid,dateline,message,userip,isFirst)
+        values(#{fid},#{tid},#{author},#{authorid},current_timestamp(),#{message},#{userip},#{first});
+    </insert>
+
+</mapper>

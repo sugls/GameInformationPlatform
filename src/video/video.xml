@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="video" extends="base" namespace="/video">
+        <action name="videos" class="video.action.VideoAction" method="getNewestVideos">
+            <result name="success">videos.jsp</result>
+        </action>
+        <action name="author" class="video.action.VideoAction" method="getAuthorVideos">
+            <result name="success">videos.jsp</result>
+        </action>
+        <action name="search" class="video.action.VideoAction" method="FindVideos">
+            <result name="success">videos.jsp</result>
+        </action>
+        <action name="authors" class="video.action.VideoAction" method="getAuthors">
+            <result name="success">authorList.jsp</result>
+        </action>
+        <action name="hero" class="video.action.VideoAction" method="getHeroVideos">
+            <result name="success">videos.jsp</result>
+        </action>
+    </package>
+
+</struts>

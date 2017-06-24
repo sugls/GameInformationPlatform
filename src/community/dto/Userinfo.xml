@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="community.dto.Userinfo">
+
+
+    <select id="checklogin" resultType="community.dto.Userinfo" parameterType="community.dto.Userinfo">
+        SELECT userid,username,icon,email
+        FROM userinfo
+        WHERE userpwd = #{userpwd}
+        AND username = #{username}
+    </select>
+
+
+
+    <select id="getUserById" parameterType="java.lang.Integer" resultType="community.dto.Userinfo">
+        select * from userinfo where userid = #{userid}
+    </select>
+
+    <select id="isAvailableUsername" resultType="Integer" parameterType="String">
+        SELECT userid FROM userinfo
+        WHERE username = #{username}
+    </select>
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userid" parameterType="community.dto.Userinfo">
+        insert into userinfo(username,userpwd,email)
+        values(#{username},#{userpwd},#{email})
+    </insert>
+
+
+    <update id="updateUser" parameterType="community.dto.Userinfo">
+        update userinfo set 
+        <if test="userpwd!=null and email!=null">
+            userpwd = #{userpwd},
+            email = #{email}
+        </if>
+        <if test="email!=null and userpwd==null">
+            email=#{email}
+        </if>
+        <if test="email==null and userpwd!=null">
+            userpwd=#{userpwd}
+        </if>
+        <if test="icon!=null">
+            icon=#{icon}
+        </if>
+         where userid = #{userid}
+    </update>
+
+</mapper>

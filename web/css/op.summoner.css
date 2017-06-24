@@ -337,13 +337,13 @@
 .RunePage .Rune.Rune-29{top:224px;left:182px;width:100px;height:100px;}
 .RunePage .Rune.Rune-30{top:35px;left:26px;width:100px;height:100px;}
 .RunePage .Rune>.RuneInner{position:relative;width:100%;height:100%;}.RunePage .Rune>.RuneInner>.Image{width:100%;height:100%;}
-.RunePageSummary{position:absolute;top:40px;right:0;left:0;bottom:0;background-color:#ededed;overflow:auto;}
-.RunePageSummaryList>.Title{height:13px;padding:8px 0 9px 10px;border:1px solid transparent;color:#f2f2f2;font-size:13px;}.RunePageSummaryList>.Title.Mark{background-color:#ee5a52;border-color:#c6443e;}
+.RunePageSummary{position:absolute;top:48px;right:0;left:0;bottom:0;background-color:#ededed;overflow:auto;}
+.RunePageSummaryList>.Title{padding:8px 0 9px 10px;border:1px solid transparent;color:#f2f2f2;font-size:13px;}.RunePageSummaryList>.Title.Mark{background-color:#ee5a52;border-color:#c6443e;}
 .RunePageSummaryList>.Title.Seal{background-color:#f6af2e;border-color:#d3962b;}
 .RunePageSummaryList>.Title.Glyph{background-color:#1f8ecd;border-color:#1a78ae;}
 .RunePageSummaryList>.Title.Quintessence{background-color:#ad55e7;border-color:#923dc8;}
 .RunePageSummaryList>.Item{display:table;width:100%;table-layout:fixed;color:#555e5e;font-size:13px;}.RunePageSummaryList>.Item>.Image{display:table-cell;width:40px;height:40px;padding:8px;vertical-align:middle;}.RunePageSummaryList>.Item>.Image>.Image{width:40px;}
-.RunePageSummaryList>.Item>.Name{display:table-cell;min-width:212px;line-height:1.3;text-align:left;vertical-align:middle;}
+.RunePageSummaryList>.Item>.Name{display:table-cell;min-width:212px;line-height:1.3;text-align:left;vertical-align:middle;padding-left:20px;}
 .RunePageSummaryList>.Item>.Count{display:table-cell;width:45px;font-weight:bold;text-align:center;vertical-align:middle;}
 .MasteryPage{width:792px;display:table;table-layout:fixed;}.MasteryPage.NoPage{line-height:436px;text-align:center;font-size:12px;font-weight:bold;color:#242929;text-shadow:0 -1px rgba(255, 255, 255, 0.5);}
 .MasteryPage>.MasteryPageArea{position:relative;display:table-cell;height:470px;}.MasteryPage>.MasteryPageArea-Offence{background:url(../images/mastery_s6_offense_bg.jpg) no-repeat;}.MasteryPage>.MasteryPageArea-Offence>.Mastery.Mastery-Pos-1.Mastery-Pos2-1{left:63px;}
@@ -470,7 +470,7 @@
 .RunePageWrap>.RunePageSummary{left:656px;}
 .RunePageWrap>.RunePageStatistics{position:absolute;top:12px;right:0;}
 .MasteryPageWrap{display:none;}.MasteryPageWrap>.MasteryPageSummaryWrap{float:left;width:176px;border-top:1px solid #cdd2d2;}.MasteryPageWrap>.MasteryPageSummaryWrap>.MasteryPageSummary{display:table;width:100%;table-layout:fixed;margin-top:15px;}.MasteryPageWrap>.MasteryPageSummaryWrap>.MasteryPageSummary>.Offense,.MasteryPageWrap>.MasteryPageSummaryWrap>.MasteryPageSummary>.Defense,.MasteryPageWrap>.MasteryPageSummaryWrap>.MasteryPageSummary>.Utility{display:table-cell;font-size:14px;font-weight:bold;text-align:center;}.MasteryPageWrap>.MasteryPageSummaryWrap>.MasteryPageSummary>.Offense>.Image,.MasteryPageWrap>.MasteryPageSummaryWrap>.MasteryPageSummary>.Defense>.Image,.MasteryPageWrap>.MasteryPageSummaryWrap>.MasteryPageSummary>.Utility>.Image{width:24px;vertical-align:middle;}
-.RunePageWrap,.MasteryPageWrap{position:relative;}.RunePageWrap>.RunePageName,.MasteryPageWrap>.RunePageName,.RunePageWrap .MasteryPageName,.MasteryPageWrap .MasteryPageName{height:16px;padding:12px 0 12px 20px;background-color:#ededed;color:#555e5e;font-size:16px;font-weight:bold;}
+.RunePageWrap,.MasteryPageWrap{position:relative;}.RunePageWrap>.RunePageName,.MasteryPageWrap>.RunePageName,.RunePageWrap .MasteryPageName,.MasteryPageWrap .MasteryPageName{padding:12px 0 12px 20px;background-color:#ededed;color:#555e5e;font-size:16px;font-weight:bold;}
 .RuneMasteryPageWrap{position:relative;}.RuneMasteryPageWrap>.Header{display:table;width:100%;background-color:#ededed;}.RuneMasteryPageWrap>.Header>.Title{display:table-cell;color:#555e5e;font-size:13px;font-weight:normal;vertical-align:middle;padding:8px 0 8px 20px;white-space:nowrap;}.RuneMasteryPageWrap>.Header>.Title>.ChampionImage{display:inline-block;margin-right:6px;width:24px;height:24px;border-radius:50%;vertical-align:middle;}
 .RuneMasteryPageWrap>.Header>.Title>.ChampionName,.RuneMasteryPageWrap>.Header>.Title>.SummonerName{color:#242929;font-weight:bold;}
 .RuneMasteryPageWrap>.Content{display:table;width:100%;background-color:#ededed;border-top:1px solid #cdd2d2;}.RuneMasteryPageWrap>.Content>.InnerMasteryPageWrap{display:table-cell;vertical-align:top;width:792px;}

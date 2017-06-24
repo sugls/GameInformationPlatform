@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="community.dto.Thread">
+    <select id="getHotThreads" resultType="community.dto.Thread">
+        SELECT tid,fid,forum.name fname,author,authorid,subject,dateline,views,replies,threads,posts
+        FROM game_platform.thread
+        natural join forum
+        order by replies desc,views desc
+    </select>
+
+    <select id="getNewestThreads" resultType="community.dto.Thread">
+        SELECT tid,fid,forum.name fname,author,authorid,subject,dateline,views,replies,threads,posts
+        FROM game_platform.thread
+        natural join forum
+        order by dateline desc
+    </select>
+
+    <select id="getThreadById" resultType="community.dto.Thread" parameterType="java.lang.Integer">
+        SELECT tid,fid,forum.name fname,author,authorid,subject,dateline,views,replies,threads,posts
+        FROM thread
+        natural join forum
+        where thread.tid = #{tid} and thread.fid = forum.fid
+    </select>
+
+    <update id="updateThreadReplies" parameterType="java.lang.Integer">
+        update thread set replies = replies+1 where tid = #{tid}
+    </update>
+    <!--插入一条发帖记录-->
+    <insert id="insertThread"  keyProperty="tid" useGeneratedKeys="true" parameterType="community.dto.Thread">
+        insert into thread(fid,author,authorid,`subject`,dateline)
+        values(#{fid},#{author},#{authorid},#{subject},current_timestamp())
+    </insert>
+
+    <!--阅读数加一-->
+    <update id="updateThreadViews" parameterType="java.lang.Integer">
+        update thread set views = views+1 where tid = #{tid}
+    </update>
+    
+    
+    <select id="getNewestThreadsByFid" parameterType="java.lang.Integer" resultType="community.dto.Thread">
+        select tid,fid,forum.`name` fname, author,authorid,subject,dateline,views,replies
+        from thread natural join forum
+        where fid = #{fid} order by dateline desc
+    </select>
+    
+    <select id="getHotThreadsByFid" parameterType="java.lang.Integer" resultType="community.dto.Thread">
+        SELECT tid,fid,forum.`name` fname, author,authorid,subject,dateline,views,replies
+        FROM game_platform.thread natural join forum
+        where fid = #{fid}
+        order by replies desc,views desc
+    </select>
+    
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="community.dto.Member">
+
+    <select id="getMemberInfoById" resultType="community.dto.Member" parameterType="java.lang.Integer">
+        SELECT userid,username,posts,replies,actives,icon
+        FROM member
+        natural join userinfo where userid = #{userid}
+    </select>
+
+    <insert id="insertMember" parameterType="community.dto.Member">
+        insert into member(userid,username)
+        values(#{userid},#{username})
+    </insert>
+    <!-- 回帖更新 -->
+    <update id="updateMemberReplies" parameterType="java.lang.Integer">
+        update member set replies = replies+1, actives = actives+2 where userid = #{userid}
+    </update>
+    <update id="updateMemberPosts" parameterType="java.lang.Integer">
+        update member set posts = posts+1, actives = actives+5 where userid = #{userid}
+    </update>
+    
+    <select id="getTopActivesMember" resultType="community.dto.Member" parameterType="java.lang.Integer">
+        select userid,username,actives,icon from member natural join userinfo order by actives desc limit #{limit}
+    </select>
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="community" extends="base" namespace="/community">
+        <action name="index" class="community.action.ForumAction" method="Forum">
+            <result name="success">home.jsp</result>
+        </action>
+
+        <action name="getThreads" class="community.action.ForumAction" method="getThreads">
+            <result name="success">threadslist.jsp</result>
+        </action>
+
+        <action name="thread" class="community.action.PostAction" method="dispatchThread">
+            <result name="success">thread.jsp</result>
+        </action>
+
+        <action name="posts" class="community.action.PostAction" method="getThreadPosts">
+            <result name="success">postcontent.jsp</result>
+        </action>
+
+        <action name="member" class="community.action.PostAction" method="getMemberInfo">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="post" class="community.action.PostAction" method="putAPost">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="forum" class="community.action.ForumAction" method="dispatchForum">
+            <result name="success">forum.jsp</result>
+        </action>
+
+        <action name="getThreadsByFid" class="community.action.ForumAction" method="getThreadsByFid">
+            <result name="success">threadslist.jsp</result>
+        </action>
+
+
+        <action name="user" class="community.action.UserAction" method="UserCenter">
+            <result name="success">user.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

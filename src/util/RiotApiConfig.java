@@ -1,4 +1,4 @@
-package util;
+﻿package util;
 
 import net.rithms.riot.api.ApiConfig;
 import net.rithms.riot.api.RiotApi;
@@ -10,8 +10,7 @@ import net.rithms.riot.api.RiotApiAsync;
  */
 public class RiotApiConfig {
 
-    private static final String API_KEY = "RGAPI-13cd1937-18f5-44d7-9d6d-cd5e57a7821c";
-
+    private static final String API_KEY = "*****-*****-*****";
     private static ThreadLocal<RiotApi> t1 = new ThreadLocal<>();
 
     private static ThreadLocal<RiotApiAsync> t2 = new ThreadLocal<>();

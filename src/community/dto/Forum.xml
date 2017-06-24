@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="community.dto.Userinfo">
+
+    <select id="getForum" resultType="community.dto.Forum">
+        SELECT fid,`name`,`desc`,icon,threads,posts
+        FROM game_platform.forum
+    </select>
+
+    <select id="getForumById" parameterType="java.lang.Integer" resultType="community.dto.Forum">
+        SELECT fid,`name`,`desc`,icon,threads,posts
+        FROM game_platform.forum
+        where fid = #{fid}
+    </select>
+
+    <update id="updateForumPost" parameterType="java.lang.Integer">
+        update forum set posts = posts+1 where fid = #{fid}
+    </update>
+
+    <update id="updateForumThread" parameterType="java.lang.Integer">
+        update forum set posts = posts+1, threads = threads+1 where fid = #{fid}
+    </update>
+
+</mapper>

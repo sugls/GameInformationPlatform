@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="summoner" extends="base" namespace="/summoner">
+
+        <action name="champion">
+            <result>champion.html</result>
+        </action>
+        <action name="rune">
+            <result>rune.html</result>
+        </action>
+        <action name="mastery">
+            <result>mastery.html</result>
+        </action>
+        <action name="league">
+            <result>league.html</result>
+        </action>
+
+        <action name="search" class="summoner.action.SummonerAction" method="SearchSummoner">
+            <result name="success">searchlist.jsp</result>
+        </action>
+
+        <action name="summary" class="summoner.action.SummonerAction" method="SummonerProfile">
+            <result name="success">summoner.jsp</result>
+        </action>
+
+
+        <action name="account" class="summoner.action.SummonerAction" method="MyAccount">
+            <result name="success">myAccount.jsp</result>
+        </action>
+
+        <action name="addAccount" class="summoner.action.SummonerAction" method="addAccount">
+            <result name="success" type="redirectAction">account</result>
+            <result name="error" type="redirectAction">account</result>
+        </action>
+
+    </package>
+    
+</struts>

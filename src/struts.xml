@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+
+    <package name="base" extends="struts-default,json-default" namespace="/">
+        <interceptors>
+            <interceptor name="instance" class="interceptor.InstanceInterceptor"/>
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="instance"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="myStack"/>
+
+        <action name="login" class="community.action.LoginAction" method="checkLogin">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+        <action name="logout" class="community.action.LoginAction" method="logout">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="checkUsername" class="community.action.LoginAction" method="checkUsername">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="register" class="community.action.LoginAction" method="register">
+            <result type="json">
+                <param name="root">result</param>
+            </result>
+        </action>
+
+        <action name="profile">
+            <result>profile.jsp</result>
+        </action>
+
+        <action name="updateIcon" class="community.action.LoginAction" method="updateUserIcon">
+            <result name="success" type="chain">profile</result>
+        </action>
+
+        <action name="updateUserInfo" class="community.action.LoginAction" method="updateUserInfo">
+            <result name="success" type="chain">profile</result>
+        </action>
+
+
+    </package>
+
+    <include file="summoner/summoner.xml"/>
+    <include file="champion/champion.xml"/>
+    <include file="community/community.xml"/>
+    <include file="leaderboard/leaderboard.xml"/>
+    <include file="video/video.xml"/>
+
+</struts>
